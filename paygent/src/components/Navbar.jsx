@@ -7,7 +7,7 @@ function Navbar(){
             <header className='header'>
             <nav className='navbar'>
                 <div className="logo">
-                PAygent
+                PAIgent
                 </div>
                 <ul>
                 <li>
@@ -15,6 +15,9 @@ function Navbar(){
                 </li>
                 <li>
                     <Link to="/projects">Explore</Link>
+                </li>
+                <li>
+                    <Link to="/about">About</Link>
                 </li>
                 </ul>
             </nav>

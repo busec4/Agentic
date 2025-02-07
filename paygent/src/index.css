@@ -15,11 +15,11 @@ body {
 }
 
 .container {
-  margin: 2%;
-  background-color: #3A4547;
+  margin: 2% 6%;
+  /* background-color: #3A4547; */
 }
 .navbar-container {
-  margin: 2%;
+  margin: 2% 5.5%;
 }
 .logo {
   font-weight: bold;
@@ -47,4 +47,10 @@ a:hover {
 
 .navbar {
   display: flex;
+}
+
+input[type=text] {
+  background-color: #272E30;
+  border: none;
+  color: #E8E8E8;
 }
