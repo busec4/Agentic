@@ -1,0 +1,45 @@
+.incontainer {
+    padding: 10px;
+    margin: 2% 7%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: #272E30;
+    gap: 20px;
+}
+
+.card {
+    background-color: #3A4547;
+    padding: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.route {
+    margin: 2% 7%;
+    padding: 10px;
+}
+
+.route p {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight:bold;
+    margin: 10px 0px;
+}
+
+p {
+    font-size: 15px;
+    font-weight: 300;
+    word-wrap: break-word;
+}
+
+
+
