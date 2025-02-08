@@ -4,6 +4,7 @@ pragma solidity ^0.8.24;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "./SuccessCurve.sol";
 
 interface IToken is IERC20 {
     function listPresale(address presale) external;
@@ -29,6 +30,7 @@ contract Token is ERC20, IToken {
     uint256 public devSupply;
     uint256 public investorSupply;
     uint256 public price;
+    ISuccessBondingCurve public successCurve;
 
     constructor(
         string memory tokenName_,
@@ -85,4 +87,16 @@ contract Token is ERC20, IToken {
     function getOwner() external view returns (address) {
         return owner;
     }
+
+    function setSuccessCurve(address _successCurve) public {
+        require(msg.sender == owner, "Only owner can set success curve");
+        successCurve = ISuccessBondingCurve(_successCurve);
+        require(
+            successCurve.getBondingCurveProgress() == 100,
+            "Bonding curve is not complete"
+        );
+        super.transfer(_successCurve, devSupply);
+    }
+
+    
 }
