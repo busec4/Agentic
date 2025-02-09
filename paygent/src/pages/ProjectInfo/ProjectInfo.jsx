@@ -7,6 +7,8 @@ function ProjectInfo() {
     const navigate = useNavigate();
     const [project, setProject] = useState(null);
     const [progress, setProgress] = useState(0);
+    const [developerShare, setDeveloperShare] = useState(60); // %60
+    const [communityShare, setCommunityShare] = useState(40);
     useEffect(() => {
         const storedProjects = JSON.parse(localStorage.getItem("projects")) || [];
         const selectedProject = storedProjects[location.state.index];
@@ -18,10 +20,6 @@ function ProjectInfo() {
 
     function handleBack() {
         navigate('/projects')
-    }
-
-    function handleTokenPage() {
-        navigate('/project-token')
     }
 
     function handleContribute() {
@@ -38,7 +36,6 @@ function ProjectInfo() {
         <>
         <div className={styles.route}>
             <p onClick={handleBack}>&#11164; Back to Projects</p>
-            <p onClick={handleTokenPage}>Token Page &#11166;</p>
         </div>
         <div className={styles.incontainer}>
             <div className={styles.card}>
@@ -64,11 +61,25 @@ function ProjectInfo() {
                 </div>
             </div>
             <div className={styles.card}>
-                 <table>
-
-                 </table>
+                <h2>Revenue Share</h2>
+                <div className={styles.revenueBar}>
+                    <div className={styles.developerShare} style={{ width: `${developerShare}%` }}>
+                            {developerShare}%
+                    </div>
+                    <div className={styles.communityShare} style={{ width: `${communityShare}%` }}>
+                            {communityShare}%
+                    </div>
+                </div>
+                <h3>Lifetime Revenue</h3>
+                                    {/* <p>Buy Price: {buyPrice} USD</p>
+                                    <p>Sell Price: {sellPrice} USD</p> */}
+                <div className={styles.button}>
+                <button className={styles.buy}>BUY</button>
+                <button className={styles.sell}>SELL</button>
+             </div>
             </div>
-        </div>
+
+            </div>
         </>
     );
 }

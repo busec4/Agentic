@@ -83,3 +83,42 @@ button {
     font-size: 15px;
 }
 
+.revenueBar {
+    width: 100%;
+    height: 30px;
+    background-color: #272E30;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+.developerShare {
+    height: 100%;
+    background-color: #4949FB;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+}
+
+.communityShare {
+    height: 100%;
+    background-color: #26A17B;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+}
+.button{
+    width: 50%;
+    display: flex; 
+    margin-top: 10px;
+}
+.sell {
+    background-color: #EF5350;
+    cursor: pointer;
+
+}
+.buy {
+    background-color: #26A17B;
+    cursor: pointer;
+}

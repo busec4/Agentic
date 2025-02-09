@@ -19,15 +19,10 @@ function Contribute() {
         navigate('/projects')
     }
 
-    function handleTokenPage() {
-        navigate('/project-token')
-    }
-
     return (
         <>
             <div className={styles.route}>
                 <p onClick={handleBack}>&#11164; Back to Projects</p>
-                <p onClick={handleTokenPage}>Token Page &#11166;</p>
             </div>
             <div className={styles.incontainer}>
                 <div className={styles.card}>
