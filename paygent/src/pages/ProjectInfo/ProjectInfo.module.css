@@ -1,0 +1,124 @@
+.incontainer {
+    padding: 10px;
+    margin: 0% 7%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(2,1fr);
+    background-color: #272E30;
+    gap: 20px;
+
+}
+
+.card {
+    background-color: #3A4547;
+    padding: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.card:nth-of-type(3) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.progressBar, .investBar {
+    width: 100%;
+    height: 35px;
+    border-radius: 20px;
+    background-color: #272E30;
+    
+}
+.progressBarFill, .investBarFill {
+    height: 60%;
+    background-color: #26A17B;
+    border-radius: 20px;
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+.route {
+    margin: 0 7%;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.route p {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight:bold;
+    margin: 10px 0px;
+}
+
+p {
+    font-size: 15px;
+    font-weight: 300;
+    word-wrap: break-word;
+}
+
+button {
+    background-color: #4949FB;
+    color: #E8E8E8;
+    width: 50%;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0px;
+    margin-left: 50%;
+    cursor: pointer;
+}
+
+.card:nth-of-type(3) p {
+    background-color: #3A4547;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.revenueBar {
+    width: 100%;
+    height: 30px;
+    background-color: #272E30;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+.developerShare {
+    height: 100%;
+    background-color: #4949FB;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+}
+
+.communityShare {
+    height: 100%;
+    background-color: #26A17B;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+}
+.button{
+    width: 50%;
+    display: flex; 
+    margin-top: 10px;
+}
+.sell {
+    background-color: #EF5350;
+    cursor: pointer;
+
+}
+.buy {
+    background-color: #26A17B;
+    cursor: pointer;
+}
