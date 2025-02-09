@@ -2,6 +2,8 @@
 pragma solidity ^0.8.24;
 
 import "./Token.sol";
+import "./Pool.sol";
+import "./Presale.sol";
 
 contract Paigent {
     mapping(address => Project) public projects;
@@ -36,7 +38,7 @@ contract Paigent {
             price
         );
         Pool pool = new Pool(address(token));
-        Presale presale = new Presale(address(token), presaleDeadline, goal);
+        Presale presale = new Presale(address(token), goal);
         token.listPresale(address(presale));
         token.setPool(address(pool));
         Project memory project = Project({

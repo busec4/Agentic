@@ -11,11 +11,11 @@ contract Presale {
     event Bought(address buyer, uint256 amount);
     event Ended(uint256 amount);
 
-    constructor(address _token, uint256 _deadline, uint256 _target) {
-        require(block.timestamp < deadline, "Presale has ended");
+    constructor(address _token, uint256 _target) {
+        deadline = block.timestamp + 7 days;
         token = IToken(_token);
-        poolAddress = token.getPooladdress();
-        deadline = _deadline;
+        poolAddress = token.getPoolAddress();
+
         target = _target;
     }
 
@@ -24,7 +24,8 @@ contract Presale {
 
         uint256 price = token.getCurrentBuyPrice(amount) * amount;
         require(msg.value >= price, "Insufficient funds");
-        pool.call{value: msg.value}("");
+        token.increaseTotalSold(amount);
+        poolAddress.call{value: msg.value}("");
         token.transferFrom(token.getOwner(), msg.sender, amount);
     }
 }

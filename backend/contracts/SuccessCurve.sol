@@ -5,14 +5,6 @@ pragma solidity ^0.8.24;
 pragma solidity ^0.8.20;
 import "./Token.sol";
 
-interface ISuccessBondingCurve {
-    function checkEligibility(uint256 correlationScore) external;
-
-    function updateBondingCurve(uint256 correlationScore) external;
-
-    function getContribution(address contributor) external view returns (uint256);
-    function getBondingCurveProgress() external view returns (uint256)
-}
 contract SuccessBondingCurve {
     address public owner;
     uint256 public bondingCurveProgress;
@@ -21,7 +13,7 @@ contract SuccessBondingCurve {
     mapping(address => uint256) public contributions;
     uint256 public contributionCount;
     IToken public rewardToken;
-    mapping (address=>bool) public claimed;
+    mapping(address => bool) public claimed;
 
     event BondingCurveUpdated(uint256 newProgress, uint256 correlationScore);
 
@@ -38,17 +30,6 @@ contract SuccessBondingCurve {
         rewardToken = IToken(_rewardToken);
     }
 
-    function checkEligibility(uint256 correlationScore) external {
-        require(correlationScore <= SCALE_FACTOR, "Invalid score");
-        if (isComplete) {
-            return;
-        }
-        if (correlationScore > 40) {
-            updateBondingCurve(correlationScore);
-            contributions[msg.sender] = correlationScore;
-        }
-    }
-
     function updateBondingCurve(uint256 correlationScore) external {
         if (bondingCurveProgress >= 100) {
             isComplete = true;
@@ -62,7 +43,20 @@ contract SuccessBondingCurve {
         contributionCount++;
     }
 
-    function getContribution(address contributor) external view returns (uint256) {
+    function checkEligibility(uint256 correlationScore) external {
+        require(correlationScore <= SCALE_FACTOR, "Invalid score");
+        if (isComplete) {
+            return;
+        }
+        if (correlationScore > 40) {
+            this.updateBondingCurve(correlationScore);
+            contributions[msg.sender] = correlationScore;
+        }
+    }
+
+    function getContribution(
+        address contributor
+    ) external view returns (uint256) {
         return contributions[contributor];
     }
 
@@ -70,7 +64,7 @@ contract SuccessBondingCurve {
         return bondingCurveProgress;
     }
 
-    function withdraw() external  {
+    function withdraw() external {
         require(isComplete, "Bonding curve is not complete");
         payable(owner).transfer(address(this).balance);
     }
@@ -79,9 +73,21 @@ contract SuccessBondingCurve {
         require(isComplete, "Bonding curve is not complete");
         require(contributions[msg.sender] > 0, "No contribution");
         require(!claimed[msg.sender], "Already claimed");
-        uint256 reward = contributions[msg.sender]*rewardToken.balanceOf(address(this))/100;
+        uint256 reward = (contributions[msg.sender] *
+            rewardToken.balanceOf(address(this))) / 100;
         rewardToken.transfer(msg.sender, reward);
         claimed[msg.sender] = true;
-        
     }
+}
+
+interface ISuccessBondingCurve {
+    function checkEligibility(uint256 correlationScore) external;
+
+    function updateBondingCurve(uint256 correlationScore) external;
+
+    function getContribution(
+        address contributor
+    ) external view returns (uint256);
+
+    function getBondingCurveProgress() external view returns (uint256);
 }
