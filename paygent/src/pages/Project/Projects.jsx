@@ -20,17 +20,17 @@ function Projects(){
                         <thead>
                             <tr>
                                 <th>NAME</th>
+                                <th>NAME OF ROBOT</th>
                                 <th>MARKET CAP</th>
                                 <th>INVESTMENT CURVE%</th>
                                 <th>AGENTIC CURVE%</th>
-                                <th>TOTAL REVENUE</th>
                             </tr>
                         </thead>
                         <tbody>
                         {projects.map((project, index) => (
                             <tr key={index} onClick={() => handleSelectProject(index)}>
                                 <td>{project.projectName}</td>
-                                <td></td>
+                                <td>{project.robot}</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

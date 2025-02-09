@@ -23,6 +23,13 @@ function ProjectInfo() {
     function handleTokenPage() {
         navigate('/project-token')
     }
+
+    function handleContribute() {
+        navigate('/contribute')
+    }
+    function handleInvest() {
+        navigate('/contribute')
+    }
     return (
         <>
         <div className={styles.route}>
@@ -44,12 +51,12 @@ function ProjectInfo() {
                 <div className={styles.investBar}>
                 <p>Investment Curve</p>
                     <div className={styles.investBarFill}>0%</div>
-                    <button>INVEST</button>
+                    <button onClick={handleInvest}>INVEST</button>
                 </div>
                 <div className={styles.progressBar}>
                     <p>Success Curve</p>
                     <div className={styles.progressBarFill}>0%</div>
-                    <button>CONTRIBUTE</button>
+                    <button onClick={handleContribute}>CONTRIBUTE</button>
                 </div>
             </div>
             <div className={styles.card}>

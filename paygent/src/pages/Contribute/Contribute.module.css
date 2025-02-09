@@ -1,0 +1,26 @@
+.incontainer {
+    padding: 10px;
+    margin: 2% 7%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    background-color: #272E30;
+    gap: 20px;
+  }
+  
+.card {
+    background-color: #3A4547;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.route {
+    margin: 0 7%;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.route p {
+    font-weight: 700;
+    cursor: pointer;
+}
