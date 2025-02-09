@@ -25,11 +25,15 @@ function ProjectInfo() {
     }
 
     function handleContribute() {
-        navigate('/contribute')
+
+            navigate('/contribute', { state: { index: location.state.index } });
+
     }
     function handleInvest() {
-        navigate('/contribute')
+            navigate('/contribute', { state: { index: location.state.index } });
+        
     }
+    
     return (
         <>
         <div className={styles.route}>
@@ -69,4 +73,4 @@ function ProjectInfo() {
     );
 }
 
-export default ProjectInfo;
+export default ProjectInfo

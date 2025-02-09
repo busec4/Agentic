@@ -4,7 +4,7 @@ function Create(){
 
     const [formData, setFormData] = useState({
         projectName: "",
-        ability: "",
+        abilities: [""],
         work: "",
         investAmount: "",
         supply: "",
@@ -42,13 +42,31 @@ function Create(){
         console.log("New Project:", formData);
     }
 
+    function addAbility() {
+        setFormData((prev) => ({
+            ...prev,
+            abilities: [...prev.abilities, ""]
+        }));
+    }
+
+    function handleAbilityChange(index, event) {
+        const newAbilities = [...formData.abilities];
+        newAbilities[index] = event.target.value;
+        setFormData((prev) => ({
+            ...prev,
+            abilities: newAbilities
+        }));
+    }
+
     return(
         <>
         <div className={styles.incontainer}>
             <div className={styles.card}>
                 <div className={styles.upload}>
                 <label htmlFor="upload">Upload Pic</label>
-                {/* <img src={file} /> */}
+                {formData.file && (
+                <img src={formData.file} alt="Project Preview" className={styles.previewImage} />
+                )}
                 <input type="file" onChange={handleFileChange} />
                 </div>
             </div>
@@ -56,8 +74,20 @@ function Create(){
                 <div className={styles.project}>
                     <label htmlFor="projectName">Project Name</label>
                     <input type="text" id='projectName' name='projectName' value={formData.projectName} onChange={handleChange} />
-                    <label htmlFor="ability">Ability of Agent</label>
-                    <textarea name="ability" id="ability" value={formData.ability} className={styles.ability} onChange={handleChange}/>
+                    <label>Ability of Agent</label>
+                        {formData.abilities.map((value, index) => (
+                            <input
+                                key={index}
+                                type="text"
+                                value={value}
+                                onChange={(event) => handleAbilityChange(index, event)}
+                                placeholder={`Ability ${index + 1}`}
+                                className={styles.dynamicInput}
+                            />
+                        ))}
+                        <button onClick={addAbility} className={styles.addButton}>
+                            + Add Ability
+                        </button>
                     <label htmlFor="work">How Agent Works</label>
                     <textarea name="work" id="work" value={formData.work} className={styles.work} onChange={handleChange}/>
                     <button className={styles.createBtn} onClick={handleCreate}>

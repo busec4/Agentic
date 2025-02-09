@@ -24,3 +24,14 @@
     font-weight: 700;
     cursor: pointer;
 }
+.contribute, .invest {
+    padding: 5px;
+}
+.contribute p, .invest p{
+    background-color: #4949FB;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    width: min-content;
+}
+

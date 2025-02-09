@@ -96,7 +96,9 @@ input[type="file"] {
     margin-top: 15px;
     cursor: pointer;
 }
-
+.dynamicInput {
+    margin-bottom: 5px;
+}
 ::file-selector-button {
     display: none;
   }
