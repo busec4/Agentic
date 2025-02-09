@@ -6,7 +6,7 @@ function ProjectInfo() {
     const location = useLocation();
     const navigate = useNavigate();
     const [project, setProject] = useState(null);
-
+    const [progress, setProgress] = useState(0);
     useEffect(() => {
         const storedProjects = JSON.parse(localStorage.getItem("projects")) || [];
         const selectedProject = storedProjects[location.state.index];
@@ -19,10 +19,15 @@ function ProjectInfo() {
     function handleBack() {
         navigate('/projects')
     }
+
+    function handleTokenPage() {
+        navigate('/project-token')
+    }
     return (
         <>
         <div className={styles.route}>
-            <p onClick={handleBack}>Back to Projects</p>
+            <p onClick={handleBack}>&#11164; Back to Projects</p>
+            <p onClick={handleTokenPage}>Token Page &#11166;</p>
         </div>
         <div className={styles.incontainer}>
             <div className={styles.card}>
@@ -34,6 +39,23 @@ function ProjectInfo() {
                 <p className={styles.abilityInfo}>{project.ability || 'N/A'}</p>
                 <h3>How Agent Works</h3>
                 <p className={styles.workInfo}>{project.work || 'N/A'}</p>
+            </div>
+            <div className={styles.card}>
+                <div className={styles.investBar}>
+                <p>Investment Curve</p>
+                    <div className={styles.investBarFill}>0%</div>
+                    <button>INVEST</button>
+                </div>
+                <div className={styles.progressBar}>
+                    <p>Success Curve</p>
+                    <div className={styles.progressBarFill}>0%</div>
+                    <button>CONTRIBUTE</button>
+                </div>
+            </div>
+            <div className={styles.card}>
+                 <table>
+
+                 </table>
             </div>
         </div>
         </>

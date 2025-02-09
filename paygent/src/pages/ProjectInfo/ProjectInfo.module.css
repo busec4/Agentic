@@ -1,10 +1,12 @@
 .incontainer {
     padding: 10px;
-    margin: 2% 7%;
+    margin: 0% 7%;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(2,1fr);
     background-color: #272E30;
     gap: 20px;
+
 }
 
 .card {
@@ -13,10 +15,32 @@
     border-radius: 5px;
     overflow: hidden;
 }
+.card:nth-of-type(3) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.progressBar, .investBar {
+    width: 100%;
+    height: 35px;
+    border-radius: 20px;
+    background-color: #272E30;
+    
+}
+.progressBarFill, .investBarFill {
+    height: 60%;
+    background-color: #26A17B;
+    border-radius: 20px;
+    padding-left: 10px;
+    font-size: 15px;
+}
 
 .route {
-    margin: 2% 7%;
-    padding: 10px;
+    margin: 0 7%;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .route p {
@@ -41,5 +65,20 @@ p {
     word-wrap: break-word;
 }
 
+button {
+    background-color: #4949FB;
+    color: #E8E8E8;
+    width: 50%;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0px;
+    margin-left: 50%;
+}
 
+.card:nth-of-type(3) p {
+    background-color: #3A4547;
+    font-weight: 700;
+    font-size: 15px;
+}
 
