@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from '../assets/Logo.png'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 function Navbar(){
     return(
@@ -7,7 +8,8 @@ function Navbar(){
             <header className='header'>
             <nav className='navbar'>
                 <div className="logo">
-                PAIgent
+                <img src={Logo} alt="logo" width="50" height="50"/>
+                <h1> PAIgent</h1>
                 </div>
                 <ul>
                 <li>

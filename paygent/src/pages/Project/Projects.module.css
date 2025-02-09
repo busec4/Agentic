@@ -31,3 +31,7 @@ th {
 thead tr {
     border-bottom: 1px solid white;
 }
+
+tbody tr {
+    cursor: pointer;
+}
