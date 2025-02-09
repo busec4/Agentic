@@ -1,0 +1,3 @@
+
+{"chainId":421614,"type":"DEPLOYMENT_INITIALIZE"}
+{"artifactId":"PaigentModule#Pool","constructorArgs":[null],"contractName":"Pool","dependencies":[],"from":"0xf87b527e48fa650b802076d3be28cce4fa499ebe","futureId":"PaigentModule#Pool","futureType":"NAMED_ARTIFACT_CONTRACT_DEPLOYMENT","libraries":{},"strategy":"basic","strategyConfig":{},"type":"DEPLOYMENT_EXECUTION_STATE_INITIALIZE","value":{"_kind":"bigint","value":"0"}}
